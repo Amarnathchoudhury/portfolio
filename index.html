@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amarnath Choudhury - Data Analyst & BI Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #ffffff;
+            --secondary-color: #0a0a0a;
+            --accent-color: #1a1a1a;
+            --hover-color: #2a2a2a;
+            --text-gradient: linear-gradient(45deg, #4a90e2, #50e3c2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Your existing styles remain unchanged */
+        /* Navigation styles */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(10, 10, 10, 0.95);
+            padding: 1.2rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--text-gradient);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .active-link::after {
+            width: 100% !important;
+        }
+
+        /* Hero Section styles */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            position: relative;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-text {
+            flex: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1s ease;
+        }
+
+        .profile-img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #4a90e2, #50e3c2) border-box;
+            animation: float 6s ease-in-out infinite;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #888;
+        }
+
+        .typed-text {
+            color: #4a90e2;
+            font-weight: 600;
+        }
+
+        /* Social Links styles */
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            background: var(--text-gradient);
+        }
+
+        /* Project Cards styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .project-card {
+            background: var(--accent-color);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .project-card:hover::before {
+            transform: translateX(100%);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* New Styles for Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .skill-category {
+            background: var(--accent-color);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: #4a90e2;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .skill-list li i {
+            margin-right: 0.5rem;
+            color: #50e3c2;
+        }
+
+        /* New Styles for Certifications Section */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .certification-card {
+            background: var(--accent-color);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* New Styles for Contact Section */
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: var(--accent-color);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-item i {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--hover-color);
+            border-radius: 50%;
+            color: #4a90e2;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 6rem 2rem;
+            display: none; /* Hide all sections by default */
+            animation: fadeInUp 0.5s ease;
+        }
+
+        /* Show the section that's active */
+        .section.active {
+            display: block;
+        }
+
+        /* Always show the home section initially */
+        #home {
+            display: flex;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            background: var(--accent-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            position: relative;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .section {
+    padding: 6rem 2rem;
+    display: none; /* Hide all sections by default */
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Show the section that's active */
+.section.active {
+    display: block;
+}
+
+/* Always show the home section initially */
+#home {
+    display: flex;
+}
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-links">
+            <a href="#home" class="nav-link active-link" data-section="home">Home</a>
+            <a href="#skills" class="nav-link" data-section="skills">Skills</a>
+            <a href="#certifications" class="nav-link" data-section="certifications">Certifications</a>
+            <a href="#projects" class="nav-link" data-section="projects">Projects</a>
+            <a href="#contact" class="nav-link" data-section="contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero section active">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Amarnath Choudhury</h1>
+                <p class="hero-subtitle">
+                    I'm a <span class="typed-text">Data Analyst & BI Specialist</span>
+                </p>
+                <p style="color: #888; margin-bottom: 2rem;">
+                    Converting raw data into valuable insights using advanced analytics and visualization to drive informed decision-making.
+                    Specialized in data analysis, business intelligence, and uncovering trends to optimize business performance.
+                </p>
+                <div class="social-links">
+                    <a href="https://linkedin.com/in/amarnathchoudhury9337757321" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/Amarnathchoudhury" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://twitter.com/yourusername" class="social-link" target="_blank">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="https://instagram.com/_beliver.24_" class="social-link" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="photo-1.jpg" alt="Amarnath Choudhury" class="profile-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2>Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Programming</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-code"></i>Python</li>
+                    <li><i class="fas fa-database"></i>SQL</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Data Analysis</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-chart-line"></i>Excel</li>  
+                    <li><i class="fas fa-chart-line"></i>Power BI</li>
+                    <li><i class="fas fa-chart-bar"></i>Matplotlib</li>
+                    <li><i class="fas fa-chart-pie"></i>Seaborn</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Machine Learning</h3>
+                <ul class="skill-list">
+                    <li><i class="fas fa-brain"></i>Statistical Analysis</li>
+                    <li><i class="fas fa-calculator"></i>Regression Analysis</li>
+                    <li><i class="fas fa-robot"></i>Hypothesis Testing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="section">
+        <h2>Certifications</h2>
+        <div class="certifications-grid">
+            <div class="certification-card">
+                <h3>IBM Data Analysis</h3>
+                <p>Exploratory Data Analysis Using Python Libraries</p>
+                <p>Innomatics Research Labs</p>
+            </div>
+            <div class="certification-card">
+                <h3>IBM Machine Learning</h3>
+                <p>Machine Learning in Python</p>
+                <p>ID: 41D13045E54A41149EF1419D00A99D66</p>
+            </div>
+            <div class="certification-card">
+                <h3>HackerRank Python</h3>
+                <p>Python Basic Certification</p>
+                <p>ID: 95AF7E7A6AFB</p>
+            </div>
+            <div class="certification-card">
+                <h3>Hackathon</h3>
+                <p>6 hours Hackathon on Building a Movie Recommendation System</p>
+                <p>Innomatics Research Labs</p>
+            </div>
+            <div class="certification-card"> 
+                <h3>Power BI Micro Course</h3> 
+                <p>7-Days Power BI Micro Course</p>
+                <p>ID: SQ21T01</p>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Hotel Price Analysis (OYO)</h3>
+                <p><strong>Tech Stack:</strong> Python, BeautifulSoup, Pandas, Matplotlib, Seaborn, Plotly</p>
+                <p><strong>Key Features:</strong></p>
+                <ul class="project-features">
+                    <li>Extracted data from OYO.com using web scraping techniques</li>
+                    <li>Analyzed price variations based on amenities (WIFI, elevator, TV, etc.)</li>
+                    <li>Conducted correlation analysis between prices and ratings</li>
+                    <li>Created interactive visualizations for pricing patterns</li>
+                    <li>Identified most popular hotels across different cities</li>
+                </ul>
+            </div>
+            
+            <div class="project-card">
+                <h3>Library Database Analysis</h3>
+                <p><strong>Tech Stack:</strong> SQL, MySQL Server</p>
+                <p><strong>Key Features:</strong></p>
+                <ul class="project-features">
+                    <li>Designed comprehensive database schema for library management</li>
+                    <li>Implemented complex SQL queries using joins and window functions</li>
+                    <li>Created automated reports for book circulation and user activity</li>
+                    <li>Developed stored procedures for common database operations</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Sales Analytics Dashboard</h3>
+                <p><strong>Tech Stack:</strong> Power BI, DAX, Power Query</p>
+                <p><strong>Key Features:</strong></p>
+                <ul class="project-features">
+                    <li>Built interactive dashboards with dynamic filtering</li>
+                    <li>Created complex DAX measures for sales analysis</li>
+                    <li>Implemented data modeling best practices</li>
+                    <li>Designed automated refresh mechanisms</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Sentiment Analysis - Amazon Reviews</h3>
+                <p><strong>Tech Stack:</strong> Python, NLTK, Scikit-learn</p>
+                <p><strong>Key Features:</strong></p>
+                <ul class="project-features">
+                    <li>Analyzed 558,682 Amazon fine food reviews</li>
+                    <li>Implemented text preprocessing pipeline</li>
+                    <li>Built predictive models for review scoring</li>
+                    <li>Achieved high accuracy in sentiment classification</li>
+                </ul>
+            </div>
+
+            <div class="project-card">
+                <h3>Hotel Review Analysis using NLP</h3>
+                <p><strong>Tech Stack:</strong> Python, NLTK, Word2Vec, TF-IDF</p>
+                <p><strong>Key Features:</strong></p>
+                <ul class="project-features">
+                    <li>Implemented three text representation techniques</li>
+                    <li>Trained Word2Vec model for semantic analysis</li>
+                    <li>Created Bag of Words representation</li>
+                    <li>Applied TF-IDF for feature extraction</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Let's Connect</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p><a href="mailto:amarnathchoudhury2@gmail.com" style="color: #4a90e2; text-decoration: none;">amarnathchoudhury2@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p><a href="tel:+919337757321" style="color: #4a90e2; text-decoration: none;">+91 9337757321</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Bangalore, India</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contact Form -->
+            <form class="contact-form" action="https://formsubmit.co/amarnathchoudhury2@gmail.com" method="POST" style="margin-top: 3rem;">
+                <!-- These hidden inputs customize the email you'll receive -->
+                <input type="hidden" name="_subject" value="New Contact Form Submission">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="true">
+                <input type="hidden" name="_next" value="https://amarnathchoudhury2.com/thanks.html">
+                
+                <div style="display: grid; gap: 1.5rem; max-width: 600px; margin: 0 auto;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <input type="text" name="name" placeholder="Your Name" required style="padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--hover-color); color: white;">
+                        <input type="email" name="email" placeholder="Your Email" required style="padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--hover-color); color: white;">
+                    </div>
+                    <input type="text" name="subject" placeholder="Subject" required style="padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--hover-color); color: white;">
+                    <textarea name="message" placeholder="Your Message" rows="5" required style="padding: 1rem; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.1); background: var(--hover-color); color: white; resize: vertical;"></textarea>
+                    <button type="submit" style="padding: 1rem 2rem; border-radius: 8px; border: none; background: var(--text-gradient); color: white; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Amarnath Choudhury. All rights reserved.</p>
+    </footer>
+
+    <!-- Your script for typing animation, with additions for section visibility -->
+    <script>
+        // Typing animation
+        const phrases = ['Data Analyst','Business Analyst', 'BI Analyst', 'Data Scientist'];
+        let currentPhrase = 0;
+        let currentChar = 0;
+        let isDeleting = false;
+        const typedText = document.querySelector('.typed-text');
+
+        function typeEffect() {
+            const current = phrases[currentPhrase];
+            if (isDeleting) {
+                typedText.textContent = current.substring(0, currentChar - 1);
+                currentChar--;
+            } else {
+                typedText.textContent = current.substring(0, currentChar + 1);
+                currentChar++;
+            }
+
+            if (!isDeleting && currentChar === current.length) {
+                setTimeout(() => isDeleting = true, 2000);
+            } else if (isDeleting && currentChar === 0) {
+                isDeleting = false;
+                currentPhrase = (currentPhrase + 1) % phrases.length;
+            }
+
+            const typingSpeed = isDeleting ? 100 : 200;
+            setTimeout(typeEffect, typingSpeed);
+        }
+
+        // Start the typing animation
+        typeEffect();
+
+        // Navigation and section visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.section');
+            
+            // Function to hide all sections and remove active class from all links
+            function resetSectionsAndLinks() {
+                sections.forEach(section => {
+                    section.classList.remove('active');
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active-link');
+                });
+            }
+            
+            // Add click event to each nav link
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Reset all sections and links
+                    resetSectionsAndLinks();
+                    
+                    // Get the target section id
+                    const sectionId = this.getAttribute('data-section');
+                    
+                    // Add active class to the clicked link
+                    this.classList.add('active-link');
+                    
+                    // Show the target section
+                    document.getElementById(sectionId).classList.add('active');
+                    
+                    // Update URL hash
+                    window.location.hash = sectionId;
+                });
+            });
+            
+            // Check for hash in URL on page load
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (document.getElementById(hash)) {
+                    resetSectionsAndLinks();
+                    document.querySelector(`[data-section="${hash}"]`).classList.add('active-link');
+                    document.getElementById(hash).classList.add('active');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
